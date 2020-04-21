@@ -13,16 +13,6 @@
             v-for="item in nav"
             :key="item.slug"
           >
-            <router-link
-              class="btn btn-primary btn-lg outline"
-              :to="{
-                path: `/${item.slug}`,
-                params: { slug: item.slug, id: item.id }
-              }"
-            >
-              {{ item.name }}
-            </router-link>
-
             <nuxt-link
               class="btn btn-primary btn-lg outline"
               :to="{
