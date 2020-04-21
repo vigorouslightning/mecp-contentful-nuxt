@@ -11,32 +11,16 @@
 </template>
 
 <script>
+import api from '@/api';
 
-//import api from '@/api';
 export default {
-  // name: 'Logo',
-  // props: {},
-  // data: () => ({
-  //   logo: Object
-  // }),
-  // computed: {},
-  // watch: {
-  //   $route() {
-  //     this.init();
-  //   }
-  // },
-  // created: function() {
-  //   this.init();
-  // },
-  // mounted: function() {},
-  //   methods: {
-  //   async byId(id) {
-  //     this.logo = (await api.contentful.getAsset(id)).fields.file.url;
-  //   },
-  //   init() {
-  //     let id = process.env.VUE_APP_HOMEPAGE_LOGO;
-  //     this.byId(id);
-  //   }
-  // }
+  name: 'Logo',
+  data: () => ({
+     logo: String
+   }),
+   created: async function() {
+     var id = "1kXoWuRfkHuil2lv3XMmIo";
+     this.logo = await api.contentful.getAsset(id)
+   }
 };
 </script>

@@ -28,7 +28,7 @@ export default {
   },
   async getAsset(id) {
     const response = await client.getAsset(id);
-    return response;
+    return response.fields.file.url;
   },
   async byId(id) {
       const response = await client.getEntries({'sys.id': id, limit: 1, include: 10});

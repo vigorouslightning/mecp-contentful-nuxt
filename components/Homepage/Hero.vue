@@ -22,6 +22,16 @@
             >
               {{ item.name }}
             </router-link>
+
+            <nuxt-link
+              class="btn btn-primary btn-lg outline"
+              :to="{
+                path: `/${item.slug}`,
+                params: { slug: item.slug, id: item.id }
+              }"
+            >
+              {{ item.name }}
+            </nuxt-link>
           </div>
         </div>
       </section>

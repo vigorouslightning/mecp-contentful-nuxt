@@ -1,8 +1,8 @@
 <template>
 <div>
-  <div class="row subnav" v-if="display">
+  <div class="row subnav">
     <div class="scrollable">
-      <ul>
+      <!-- <ul>
         <li v-if="hideOverview" :class="isCurrent($route.params.slug)">
           <router-link :to="{ name: 'page', params: { slug: $route.params.slug } }">
             Overview
@@ -22,18 +22,18 @@
             {{ item.name }}
           </router-link>
         </li>
-      </ul>
+      </ul>  -->
     </div>
   </div>
   </div>
 </template>
 
 <script>
-//import api from '@/api';
-//import { mapActions, mapState } from 'vuex';
+import api from '@/api';
+import { mapActions, mapState } from 'vuex';
 
 export default {
-  // name: 'SubNav',
+  name: 'SubNav',
   // data: () => ({
   //   subNav: Array,
   //   hideOverview: Boolean,
