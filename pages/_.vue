@@ -1,7 +1,7 @@
 <template>
     <div>
         <section>
-    <Header />
+            <Header />
     <div class="mainBlock">
       <section class="container padding-top-lg subPage">
         <h2>
@@ -53,34 +53,17 @@ export default {
     data: () => ({
         content: Object
     }),
-    created: async function() {
-        const contentful = require('contentful');
-        let space = '8hfgi7fwntly';
-        let accessToken = '3OWbxhoixpB0f7od1LzRFGzMbUBgIQr5lsSZ78z-lWw';
-        let client = new contentful.createClient({
-            space: space,
-            accessToken: accessToken
-        });
-        
-        var slug = this.$route.params.pathMatch;
+    async asyncData({params}) {
+        var slug = params.pathMatch;
 
         if (slug.includes('/')) {
             var parts = slug.split('/');
             slug = parts[parts.length - 1];
         }
 
-        let response = await client.getEntries({
-            content_type: 'page',
-            'fields.slug[in]': slug,
-            limit: 1,
-            include: 5
-        });
-        debugger;
-        console.log("SLUG: " + this.$route.params.slug);
+        let response = await api.contentful.bySlug(slug)
 
-        if (typeof response.items[0] != 'undefined')
-            this.content = response.items[0].fields;
-
+        return {content: response};
     },
     methods: {
         getComponent(zone) {

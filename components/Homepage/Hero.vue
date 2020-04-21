@@ -64,6 +64,9 @@ export default {
     this.buildNav();
   },
   methods: {
+    toHtml(value) {
+      return documentToHtmlString(value, textOptions);
+    },
     ...mapActions({
       fetchNav: 'nav/fetch'
     }),
